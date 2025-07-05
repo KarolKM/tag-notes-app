@@ -1,34 +1,34 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Note } from '../../models/note.model';
+import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatChipsModule } from '@angular/material/chips';
-import { CommonModule } from '@angular/common';
 import { DatePipe } from '@angular/common';
+import { Note } from '../../models/note.model';
 
 @Component({
   selector: 'app-note-item',
+  standalone: true,
   templateUrl: './note-item.html',
   styleUrls: ['./note-item.scss'],
-  standalone: true,
   imports: [
+    CommonModule,
     MatCardModule,
     MatButtonModule,
     MatChipsModule,
-    CommonModule,
-    DatePipe,
+    DatePipe
   ],
 })
 export class NoteItemComponent {
   @Input() note!: Note;
   @Output() editRequested = new EventEmitter<Note>();
   @Output() deleteRequested = new EventEmitter<string>();
-  
-  requestEdit(): void {
+
+  requestEdit() {
     this.editRequested.emit(this.note);
   }
 
-  requestDelete(): void {
+  requestDelete() {
     this.deleteRequested.emit(this.note.id);
   }
 }
