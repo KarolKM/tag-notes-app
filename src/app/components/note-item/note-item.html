@@ -3,9 +3,6 @@
   <mat-card-content>
     <p>{{ note.content }}</p>
     <div class="tags">
-      <mat-chip-list>
-        <mat-chip *ngFor="let tag of note.tags">{{ tag }}</mat-chip>
-      </mat-chip-list>
     </div>
     <small>Utworzono: {{ note.createdAt | date:'short' }}</small>
   </mat-card-content>
