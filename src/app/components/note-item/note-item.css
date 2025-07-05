@@ -1,0 +1,18 @@
+mat-card {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  transition: transform 0.2s ease;
+}
+
+mat-card:hover {
+  transform: translateY(-3px);
+}
+
+.tags {
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+mat-chip {
+  margin-right: 4px;
+}

@@ -1,11 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-tag-filter',
-  imports: [],
   templateUrl: './tag-filter.html',
-  styleUrl: './tag-filter.css'
+  styleUrls: ['./tag-filter.scss'],
+  standalone: true,
+  imports: [],
 })
-export class TagFilter {
+export class TagFilterComponent {
+  @Input() allTags: string[] = [];
+  @Output() tagSelected = new EventEmitter<string>();
 
+  selectTag(tag: string): void {
+    this.tagSelected.emit(tag);
+  }
 }

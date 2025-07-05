@@ -1,1 +1,10 @@
-<p>tag-filter works!</p>
+<div class="tag-list">
+  <button
+    *ngFor="let tag of allTags"
+    mat-stroked-button
+    color="accent"
+    (click)="selectTag(tag)"
+  >
+    {{ tag }}
+  </button>
+</div>

@@ -1,11 +1,23 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Note } from '../../models/note.model';
 
 @Component({
   selector: 'app-note-item',
-  imports: [],
   templateUrl: './note-item.html',
-  styleUrl: './note-item.css'
+  styleUrls: ['./note-item.scss'],
+  standalone: true,
+  imports: [],
 })
-export class NoteItem {
+export class NoteItemComponent {
+  @Input() note!: Note;
+  @Output() editRequested = new EventEmitter<Note>();
+  @Output() deleteRequested = new EventEmitter<string>();
+  
+  requestEdit(): void {
+    this.editRequested.emit(this.note);
+  }
 
+  requestDelete(): void {
+    this.deleteRequested.emit(this.note.id);
+  }
 }

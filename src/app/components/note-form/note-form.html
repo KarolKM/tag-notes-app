@@ -1,1 +1,22 @@
-<p>note-form works!</p>
+<h3>{{ noteToEdit ? 'Edytuj notatkę' : 'Nowa notatka' }}</h3>
+
+<form [formGroup]="noteForm" (ngSubmit)="submitForm()">
+  <mat-form-field appearance="fill">
+    <mat-label>Tytuł</mat-label>
+    <input matInput formControlName="title" />
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Treść</mat-label>
+    <textarea matInput formControlName="content"></textarea>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Tagi (oddzielone przecinkami)</mat-label>
+    <input matInput formControlName="tags" />
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit" [disabled]="noteForm.invalid">
+    {{ noteToEdit ? 'Zaktualizuj' : 'Zapisz' }}
+  </button>
+</form>
