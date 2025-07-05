@@ -44,5 +44,12 @@ export class AppComponent {
   handleNoteDelete(id: string): void {
     this.noteService.removeNote(id);
   }
+  handleEdit(note: Note) {
+    this.noteBeingEdited = note;
+  }
+
+  handleDelete(id: string) {
+    this.noteService.removeNote(id);
+  }
 
 }

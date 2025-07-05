@@ -1,3 +1,5 @@
+<h1>📌 Tag Notes</h1>
+
 <app-tag-filter
   [allTags]="['Angular', 'Frontend', 'Idea']"
   (tagSelected)="handleTagSelection($event)">
@@ -14,3 +16,10 @@
   (editRequested)="handleEditRequest($event)"
   (deleteRequested)="handleNoteDelete($event)">
 </app-note-list>
+
+<app-note-list
+  [selectedTag]="selectedTag"
+  (editRequested)="handleEdit($event)"
+  (deleteRequested)="handleDelete($event)">
+</app-note-list>
+
