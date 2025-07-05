@@ -1,13 +1,22 @@
 import { Component, EventEmitter, Input, Output, OnChanges, SimpleChanges } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Note } from '../../models/note.model';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { ReactiveFormsModule } from '@angular/forms'
 
 @Component({
   selector: 'app-note-form',
   templateUrl: './note-form.html',
   styleUrls: ['./note-form.scss'],
   standalone: true,
-  imports: [], // dodaj ReactiveFormsModule i Angular Material
+  imports: [
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule
+  ],
 })
 export class NoteFormComponent implements OnChanges {
   @Input() noteToEdit: Note | null = null; // przekazywana notatka do edycji
