@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { Note } from '../../models/note.model';
 import { NoteService } from '../../services/note';
 import { NoteItemComponent } from '../note-item/note-item';
+import { MatChipsModule } from '@angular/material/chips';
 
 @Component({
   selector: 'app-note-list',
   standalone: true,
-  imports: [CommonModule, NoteItemComponent],
+  imports: [CommonModule, NoteItemComponent, MatChipsModule, CommonModule],
   templateUrl: './note-list.html',
   styleUrls: ['./note-list.scss'],
 })
