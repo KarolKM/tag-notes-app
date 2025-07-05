@@ -1,12 +1,20 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Note } from '../../models/note.model';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { MatChipsModule } from '@angular/material/chips';
+
 
 @Component({
   selector: 'app-note-item',
   templateUrl: './note-item.html',
   styleUrls: ['./note-item.scss'],
   standalone: true,
-  imports: [],
+  imports: [
+    MatCardModule,
+    MatButtonModule,
+    MatChipsModule,
+  ],
 })
 export class NoteItemComponent {
   @Input() note!: Note;
