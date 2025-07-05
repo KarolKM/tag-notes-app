@@ -1,14 +1,24 @@
 import { Component } from '@angular/core';
+import { NoteFormComponent } from './components/note-form/note-form';
+import { NoteListComponent } from './components/note-list/note-list';
+import { TagFilterComponent } from './components/tag-filter/tag-filter';
 import { Note } from './models/note.model';
 import { NoteService } from './services/note';
+import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.html',
   standalone: true,
   imports: [
-    // dodaj NoteFormComponent, NoteListComponent, TagFilterComponent
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    NoteFormComponent,
+    NoteListComponent,
+    TagFilterComponent
   ],
+  templateUrl: './app.html',
 })
 export class AppComponent {
   selectedTag: string | null = null;
